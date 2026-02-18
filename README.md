@@ -33,7 +33,72 @@ Atualmente a empresa utiliza profissionais para definir manualmente essa estimat
  - Uma tarefa de regressão multivariada, pois, existe multiplas variás preditoras.
  - No caso vamos usar um lote de dados ou batch learning, pois, esses dados estão em um bloco fixo, sem um fluxo continuo de dados e uma necessidade de atualização em tempo real.
 
+## Estrutura das pastas
 
+O sistema sera escalar, de forma que tenha persistencia de dados em cada ponto, no caso, do sistema aqui desenvolvido é um ML, então vamos fazer a analisa dos dados brutos, depois fazer uma limpeza dos dados e por fim fazer a normalização dos dados para trabalhar no modelo de dados.
+Porem a cada etapa que for desenvolvido, farei a persistencia no banco, se fosse em um cenario de uma empresa, poderiamos desenvolver mais etapas, com cada persistencia, por exemplo, no persistencia de limpeza podemos trabalhar uma analise de dados, uma criação de um Dashboard com os dados.
+A estrtura das pastas será a seguinte:
 
-
+analise_valores_casa/
+│
+├── data/
+│   └── raw/
+│       └── housing.csv
+│
+├── sql/
+│   └── ddl/
+│       ├── raw/
+│       │   
+│       │
+│       ├── clean/
+│       │   
+│       │
+│       └── feature/
+│           
+│           
+│
+├── src/
+│   ├── core/
+│   │   ├── settings.py
+│   │   ├── database.py
+│   │   └── logger.py
+│   │
+│   ├── layers/
+│   │   ├── raw/
+│   │   │   ├── contract.py
+│   │   │   ├── ingestion.py
+│   │   │   └── pipeline.py
+│   │   │
+│   │   ├── clean/
+│   │   │   
+│   │   │   
+│   │   │   
+│   │   │
+│   │   └── feature/
+│   │       
+│   │      
+│   │       
+│   │       
+│   │
+│   ├── pipelines/
+│   │   
+│   │   
+│   │
+│   └── main.py
+│
+├── models/
+│
+├── reports/
+│
+│
+├── notebooks/
+│   
+│
+├── tests/
+│
+├── requirements.txt
+├── README.md
+├── docker-compose.yml
+├── Dockerfile
+└──   requirements.txt    
 
