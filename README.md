@@ -49,18 +49,53 @@ Próximas etapas / Next steps:
 
 ## Estrutura das Pastas / Folder Structure
 
-| Português | English |
-|-----------|---------|
-| data/raw/housing.csv | data/raw/housing.csv |
-| sql/ddl/raw/001_create_raw_housing.sql | sql/ddl/raw/001_create_raw_housing.sql |
-| src/core/settings.py, database.py, logger.py | src/core/settings.py, database.py, logger.py |
-| src/layers/raw/contract.py, ingestion.py, pipeline.py, models.py | src/layers/raw/contract.py, ingestion.py, pipeline.py, models.py |
-| src/layers/clean/pipeline.py | src/layers/clean/pipeline.py |
-| src/layers/feature/pipeline.py | src/layers/feature/pipeline.py |
-| src/pipelines/main_pipeline.py | src/pipelines/main_pipeline.py |
-| src/main.py | src/main.py |
-| models/ | models/ |
-| reports/ | reports/ |
-| notebooks/ | notebooks/ |
-| tests/ | tests/ |
-| requirements.txt, Dockerfile, docker-compose.yml | requirements.txt, Dockerfile, docker-compose.yml |
+```text
+analise_valores_casa/
+│
+├── data/
+│   └── raw/
+│       └── housing.csv          # Dataset original usado para ingestão / Original dataset used for ingestion
+│
+├── sql/
+│   └── ddl/
+│       ├── raw/                 # Scripts DDL para criação da tabela raw_housing / DDL scripts for raw_housing table
+│       │   └── 001_create_raw_housing.sql
+│       ├── clean/               # Scripts DDL para tabelas intermediárias limpas / DDL scripts for cleaned intermediate tables
+│       └── feature/             # Scripts DDL para tabelas de features derivadas / DDL scripts for derived feature tables
+│
+├── src/
+│   ├── core/
+│   │   ├── settings.py          # Configurações do projeto (paths, DB, environment) / Project settings
+│   │   ├── database.py          # Conexão e sessão com o banco de dados / Database connection and session
+│   │   └── logger.py            # Logger central do pipeline / Central pipeline logger
+│   │
+│   ├── layers/
+│   │   ├── raw/                 # Camada RAW / RAW layer
+│   │   │   ├── contract.py      # Definição do schema/contrato de dados / Data schema/contract definition
+│   │   │   ├── ingestion.py     # Função de ingestão para raw_housing / Ingestion function for raw_housing
+│   │   │   ├── pipeline.py      # Pipeline de ingestão RAW / RAW ingestion pipeline
+│   │   │   └── models.py        # Modelos iniciais do RAW / Initial RAW models
+│   │   │
+│   │   ├── clean/               # Camada CLEAN (planejada) / CLEAN layer (planned)
+│   │   │   └── pipeline.py      # Pipeline de limpeza / Cleaning pipeline
+│   │   │
+│   │   └── feature/             # Camada FEATURE (planejada) / FEATURE layer (planned)
+│   │       └── pipeline.py      # Pipeline de engenharia de features / Feature engineering pipeline
+│   │
+│   ├── pipelines/
+│   │   └── main_pipeline.py     # Orquestrador dos pipelines (opcional) / Pipelines orchestrator (optional)
+│   │
+│   └── main.py                  # Entry point do projeto / Project entry point
+│
+├── models/                      # Modelos treinados (quando aplicável) / Trained models (when applicable)
+│
+├── reports/                     # Relatórios e logs gerados / Generated reports and logs
+│
+├── notebooks/                   # Notebooks exploratórios ou testes / Exploratory notebooks or tests
+│
+├── tests/                       # Testes unitários e de integração / Unit and integration tests
+│
+├── requirements.txt             # Dependências Python / Python dependencies
+├── README.md                     # Documentação do projeto / Project documentation
+├── docker-compose.yml            # Configuração Docker Compose / Docker Compose configuration
+└── Dockerfile                    # Imagem do container da aplicação / Application container image
