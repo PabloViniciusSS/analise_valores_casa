@@ -34,31 +34,7 @@ venv/
 *.log
 logs/
 
-# ==========================
-# Data (não versionar datasets locais)
-# ==========================
-data/raw/*
-data/staging/*
-data/processed/*
 
-# Permitir estrutura das pastas
-!data/raw/.gitkeep
-!data/staging/.gitkeep
-!data/processed/.gitkeep
-
-# ==========================
-# Model Artifacts
-# ==========================
-models_artifacts/*
-!models_artifacts/.gitkeep
-
-# ==========================
-# Reports gerados
-# ==========================
-reports/figures/*
-reports/metrics/*
-!reports/figures/.gitkeep
-!reports/metrics/.gitkeep
 
 # ==========================
 # IDE
@@ -78,7 +54,3 @@ Thumbs.db
 .pytest_cache/
 .coverage
 
-# ==========================
-# Docker
-# ==========================
-*.pid
