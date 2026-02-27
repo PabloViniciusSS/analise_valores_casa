@@ -99,3 +99,14 @@ analise_valores_casa/
 ├── README.md                     # Documentação do projeto / Project documentation
 ├── docker-compose.yml            # Configuração Docker Compose / Docker Compose configuration
 └── Dockerfile                    # Imagem do container da aplicação / Application container image
+
+
+## Performace do Modelo
+
+Para avaliar o desempenho do modelo de regresão, vou utilizar uma métrica principal que será o MSE e a uma métrica de apoio o MSE.
+    - Mean Squared Error(MSE): mede a média de erros ao quadrado. Essa métrica penaliza fortemente erros grandes, sendo útil quando previsões muito distantes do valor real são indesejáveis.
+    - Mean Absolute Error(MAE): calcula a média do erro absoluto. É mais robusta à presença de outiliers e fornece uma interpretação direta do erro médio em dólares.
+
+O uso combinado dessas métricas permite avaliar:
+    -   Sensibilidade a grades erros (MSE)
+    -   Erro Médio real observado(MAE)
